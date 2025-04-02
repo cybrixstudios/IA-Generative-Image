@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: cybrix-imagine-api
+    name: cybrix-ia-backend
     env: python
     plan: free
     buildCommand: pip install -r requirements.txt

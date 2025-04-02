@@ -5,6 +5,7 @@ from PIL import Image
 import io
 import base64
 import tempfile
+import os
 
 app = Flask(__name__)
 
@@ -16,7 +17,7 @@ pipe = pipe.to(device)
 
 @app.route("/", methods=["GET"])
 def home():
-    return "Servidor Cybrix Imagine IA está activo. Usa /generar para enviar prompts."
+    return "Servidor Cybrix Imagine IA activo. Usa /generar para enviar prompts."
 
 @app.route("/generar", methods=["POST"])
 def generar():
@@ -39,6 +40,5 @@ def generar():
         return jsonify({"error": str(e)}), 500
 
 if __name__ == "__main__":
-   import os
-port = int(os.environ.get("PORT", 5000))
-app.run(host="0.0.0.0", port=port)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
